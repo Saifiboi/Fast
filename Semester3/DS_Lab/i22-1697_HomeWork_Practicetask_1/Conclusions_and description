@@ -1,0 +1,37 @@
+Experiment: Comparing Execution Time of CNIC Search in Array vs. Dictionary
+
+->Array Implementation:
+The linear search function was implemented to search for the given CNIC in the array. We used the chrono library to measure the execution time of the search function and the total program execution time.
+1.Execution Time 1: 0.00455633 seconds
+2.Execution Time 2: 0.00428419 seconds
+3.Execution Time 3: 0.00309138 seconds
+
+->Dictionary Implementation:
+In the dictionary implementation, we organized the data into multiple arrays based on the starting digit of the CNIC. 
+We Have confined the size of 1 array at 10,000 entries to make the experiment more realistic.
+1.Execution Time 1: 0.000730029 seconds
+2.Execution Time 2: 0.000625023 seconds
+3.Execution Time 3: 0.000322952 seconds
+
+->Program Running Time for Linear Search in Arrays:
+1.Execution Time 1: 4.70665 seconds
+2.Execution Time 2: 2.67006 seconds
+3.Execution Time 3: 3.00207 seconds
+
+->Program Running Time for Linear Search in Dictionary:
+1.Execution Time 1: 8.3224 seconds
+2.Execution Time 2: 3.122 seconds
+3.Execution Time 3: 2.96484 seconds
+
+
+->Remarks:
+The experiment demonstrated that the dictionary implementation outperformed the array implementation in terms of execution time for searching CNICs.
+The dictionary approach took significantly less time compared to the linear search within the array.The Exectuion Time of search algorithm in dictionay 
+is (10-16)% of Execution time in arrays.This means time is reduced to from 80 to 90 percent.So productivity in terms of time is increased 8-9 times.In ideal case
+the improvement in time is 10 times but in actual experiment certain other factors also affects the time measurements.Also The Program execution time depends on
+user responsiveness as well.
+
+->Note:
+The execution times mentioned above are based on the specific hardware and environment used during the experiment. Results may vary on different systems and configurations.
+
+
