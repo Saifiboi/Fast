@@ -1,7 +1,0 @@
-#include<iostream>
-#include"IntegerList.h"
-int main()
-{
-	IntegerList a(5);
-
-}

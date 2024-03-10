@@ -1,8 +1,0 @@
-09:28:34 **** Clean-only build of configuration Debug for project Lab 07 ****
-make clean 
-rm -rf ./i22-1697\ lab\ 07/Block.d ./i22-1697\ lab\ 07/Block.o ./i22-1697\ lab\ 07/Complex.d ./i22-1697\ lab\ 07/Complex.o ./i22-1697\ lab\ 07/Holiday.d ./i22-1697\ lab\ 07/Holiday.o ./i22-1697\ lab\ 07/i221697_lab\ 07.d ./i22-1697\ lab\ 07/i221697_lab\ 07.o
-rm -rf Lab\\ 07
- 
-
-09:28:35 Build Finished. 0 errors, 0 warnings. (took 334ms)
-

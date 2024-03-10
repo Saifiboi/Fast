@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;Prac/src/Flight.cpp&apos;" deleteContents="false" description="Delete resource &apos;Prac/src/Flight.cpp&apos;" element1="/Prac/src/Flight.cpp" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1685969833358"/>&#x0A;<refactoring comment="Delete resource &apos;Prac/src/Reservationalloc&apos;" deleteContents="false" description="Delete resource &apos;Prac/src/Reservationalloc&apos;" element1="/Prac/src/Reservationalloc" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1685970921054"/>
-</session>
