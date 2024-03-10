@@ -1,0 +1,17 @@
+/*
+ * CurrentAccount.h
+ *
+ *  Created on: May 3, 2023
+ *      Author: safi
+ */
+
+#ifndef CURRENTACCOUNT_H_
+#define CURRENTACCOUNT_H_
+
+class CurrentAccount {
+public:
+	CurrentAccount();
+	virtual ~CurrentAccount();
+};
+
+#endif /* CURRENTACCOUNT_H_ */

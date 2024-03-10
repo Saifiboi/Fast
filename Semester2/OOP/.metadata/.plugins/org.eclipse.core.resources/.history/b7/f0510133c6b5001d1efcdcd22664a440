@@ -1,0 +1,10 @@
+#include <iostream>
+using namespace std;
+int main ( )
+{
+	char *ptr;
+	char myString[] = "programing I";
+	ptr = myString;
+	ptr += 5;
+	cout<<ptr;
+}

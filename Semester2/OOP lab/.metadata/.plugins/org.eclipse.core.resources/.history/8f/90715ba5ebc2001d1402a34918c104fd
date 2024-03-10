@@ -1,0 +1,18 @@
+/*
+ * FaceBook.cpp
+ *
+ *  Created on: Mar 15, 2023
+ *      Author: safi
+ */
+
+#include "FaceBook.h"
+
+FaceBook::FaceBook() {
+	// TODO Auto-generated constructor stub
+
+}
+
+FaceBook::~FaceBook() {
+	// TODO Auto-generated destructor stub
+}
+

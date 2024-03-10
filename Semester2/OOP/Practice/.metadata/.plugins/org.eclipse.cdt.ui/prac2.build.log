@@ -1,0 +1,6 @@
+08:20:25 **** Incremental Build of configuration Debug for project prac2 ****
+make all 
+make: Nothing to be done for 'all'.
+
+08:20:25 Build Finished. 0 errors, 0 warnings. (took 289ms)
+

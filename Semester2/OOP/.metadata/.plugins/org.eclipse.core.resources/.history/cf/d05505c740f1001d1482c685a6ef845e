@@ -1,0 +1,33 @@
+/*
+ * Call.h
+ *
+ *  Created on: May 12, 2023
+ *      Author: safi
+ */
+
+#ifndef SRC_CALL_H_
+#define SRC_CALL_H_
+#include "header.h"
+#include "Patient.h"
+#include "Doctor.h"
+class Call{
+	int call_id;
+	char notes_doc[300];
+	char pat_res[300];
+	char res_doc[300];
+	char patient_not[300];
+	bool audio_vid;			//0 audio 1 video
+	bool call_rec;
+public:
+	Call(int =0,char []=NULL,char []=NULL,char []=NULL,char []=NULL,bool =0,bool =0);
+	void DisplaycalltoP();
+	void DisplaycalltoD();
+	void savecall(string path);
+//	void Make_CalltoD(Doctor &,int);
+//	void Make_CalltoP(Patient &P,int id);
+	void retrievecall(string path,bool check,bool person);
+	void Call::Make_CalltoP(Patient &P,int id);
+	virtual ~Call();
+};
+
+#endif /* SRC_CALL_H_ */

@@ -1,0 +1,234 @@
+/*
+ * Matrix.cpp
+ *
+ *  Created on: Mar 23, 2023
+ *      Author: safi
+ */
+
+#include "Matrix.h"
+#include<string>
+using namespace std;
+Matrix::Matrix(int r,int c) {
+	this->rows=r;
+	this->columns=c;
+	this->malloc();
+
+}
+void Matrix::setsize(int x,int y)
+{
+	this->rows=x;
+	this->columns=y;
+	this->mdelloc();
+	this->malloc();
+}
+void Matrix::operator=(const Matrix & M)
+{
+	this->mdelloc();
+	this->rows=M.rows;
+	this->columns=M.columns;
+	this->malloc();
+	for(int i=0;i<this->rows;i++)
+	{
+		for(int j=0;j<this->columns;j++)
+		{
+			this->matrix[i][j]=M.matrix[i][j];
+		}
+	}
+}
+bool Matrix::operator==(const Matrix & M)
+{
+	bool res=1;
+	if(this->rows==M.rows && this->columns==M.columns)
+	{
+		for(int i=0;i<this->rows;i++)
+		{
+			for(int j=0;j<this->columns;j++)
+			{
+				if(this->matrix[i][j]!=M.matrix[i][j])
+				{
+					res =0;
+				}
+			}
+		}
+		return res;
+	}
+	else
+	{
+		return 0;
+	}
+}
+Matrix Matrix::operator+(const Matrix & M2)
+{
+	Matrix M(this->rows,this->columns);
+	if(this->columns==M2.columns && this->rows==M2.rows)
+	{
+		for(int i=0;i<M.rows;i++)
+		{
+			for(int j=0;j<M.columns;j++)
+			{
+				M.matrix[i][j]=this->matrix[i][j]+M2.matrix[i][j];
+			}
+		}
+		return M;
+	}
+	else
+	{
+		cout<<"\nInvalid Operation::\n";
+		return M;
+	}
+}
+Matrix Matrix::operator-(const Matrix & M2)
+{
+	Matrix M(this->rows,this->columns);
+	if(this->columns==M2.columns && this->rows==M2.rows)
+	{
+		for(int i=0;i<M.rows;i++)
+		{
+			for(int j=0;j<M.columns;j++)
+			{
+				M.matrix[i][j]=this->matrix[i][j]-M2.matrix[i][j];
+			}
+		}
+		return M;
+	}
+	else
+	{
+		cout<<"\nInvalid Operation::\n";
+		return M;
+	}
+}
+void Matrix::setvalues()
+{
+	string input;
+	int size=this->rows*this->columns;
+	cout<<"\nEnter "<<size<<" Values (Comma separated):";
+	cin>>input;
+	char *tok=strtok(input,",");
+	for(int i=0;i<this->rows;i++)
+	{
+
+	}
+
+}
+void Matrix::Display()
+{
+	cout<<"\nThe matrix::\n";
+	for(int i=0;i<this->rows;i++)
+	{
+		for(int j=0;j<this->columns;j++)
+		{
+			cout<<this->matrix[i][j]<<"\t";
+		}
+		cout<<endl;
+	}
+
+}
+void Matrix::mdelloc()
+{
+	for(int i=0;i<this->rows;i++)
+	{
+		delete [] this->matrix[i];
+	}
+	delete [] this->matrix;
+	this->matrix=0;
+}
+void Matrix::malloc()
+{
+	this->matrix=new int *[this->rows];
+	for(int i=0;i<this->rows;i++)
+	{
+		this->matrix[i]=new int [this->columns];
+	}
+}
+
+int Matrix::getColumns() const {
+	return columns;
+}
+
+void Matrix::setColumns(int columns) {
+	this->columns = columns;
+	this->mdelloc();
+	this->malloc();
+}
+
+int Matrix::getRows() const {
+	return rows;
+}
+
+void Matrix::setRows(int rows) {
+	this->rows = rows;
+	this->mdelloc();
+	this->malloc();
+}
+Matrix  Matrix::operator*(int x)
+{
+	Matrix M(this->rows,this->columns);
+	for(int i=0;i<M.rows;i++)
+	{
+		for(int j=0;j<=M.columns;j++)
+		{
+			M.matrix[i][j]=x*this->matrix[i][j];
+		}
+	}
+	return M;
+
+}
+Matrix  Matrix::operator*(Matrix & M1)
+{
+	Matrix M(this->rows,M1.columns);
+	if(this->columns==M1.rows)
+	{
+		for(int i=0;i<M.rows;i++)
+		{
+			for(int j=0;j<M.columns;j++)
+			{
+				M.matrix[i][j]=0;
+			}
+		}
+		for(int i=0;i<this->rows;i++)
+		{
+			for(int j=0;j<this->rows;j++)
+			{
+				for(int k=0;k<this->columns;k++)
+				{
+					M.matrix[i][j]+=this->matrix[i][k]*M1.matrix[k][j];
+				}
+			}
+		}
+		return M;
+	}
+	else
+	{
+		cout<<"\nInvalid Operation::\n";
+		return M;
+	}
+}
+Matrix & Matrix::operator++()
+{
+	for(int i=0;i<this->rows;i++)
+	{
+		for(int j=0;j<this->columns;j++)
+		{
+			this->matrix[i][j]++;
+		}
+	}
+
+	return *this;
+}
+Matrix Matrix::operator++(int x)
+{
+	Matrix temp(this->rows,this->columns);
+	for(int i=0;i<this->rows;i++)
+	{
+		for(int j=0;j<this->columns;j++)
+		{
+			temp.matrix[i][j]=this->matrix[i][j];
+			this->matrix[i][j]++;
+		}
+	}
+
+	return temp;
+}
+Matrix::~Matrix() {
+	this->mdelloc();
+}

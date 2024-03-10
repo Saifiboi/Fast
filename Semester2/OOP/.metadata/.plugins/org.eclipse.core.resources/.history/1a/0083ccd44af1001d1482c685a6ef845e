@@ -1,0 +1,502 @@
+/*
+ * Patient.cpp
+ *
+ *  Created on: May 2, 2023
+ *      Author: safi
+ */
+//============================================================================
+// Name        : Patient.cpp
+// Author      : Saif Ur Rehman
+// ROLL NO     :i22-1697
+//============================================================================
+#include "Patient.h"
+//Constructor.
+Patient::Patient(int id,char password[],char name[],int age,char occupation[],int ind){
+	this->patient_id=id;
+	strcpy(this->password , password);
+	strcpy(this->patient_Name, name);
+	this->age=age;
+	strcpy(this->occupation , occupation);
+	int i=0;
+	this->indexdoctor=ind;
+	for(int i=0;i<this->indexdoctor;i++)
+	{
+		this->D[i]=D[i];
+	}
+	if(doc_ids==NULL)
+	{
+		for(int i=0;i<this->indexdoctor;i++)
+		{
+			this->doc_ids[i]=-1;
+		}
+	}
+	else
+	{
+		for(int i=0;i<this->indexdoctor;i++)
+		{
+			this->doc_ids[i]=doc_ids[i];
+		}
+		if(this->indexdoctor<5)
+		{
+			for(int i=this->indexdoctor;i<5;i++)
+			{
+				this->doc_ids[i]=-1;
+			}
+		}
+	}
+	for(int i=0;i<this->indexdoctor;i++)
+	{
+		this->D[i]=D[i];
+	}
+	while(i<5&& D[i]!=NULL)
+	{
+		this->D[i]=D[i];
+		i++;
+	}
+	for(int i=0;i<this->indexdoctor;i++)
+	{
+		this->permission[i]=1;
+	}
+
+}
+
+int Patient::getAge() const {
+	return age;
+}
+
+void Patient::setAge(int age) {
+	this->age = age;
+}
+
+Doctor& Patient::getD(int index) const {
+	return *D[index];
+}
+
+void Patient::setD(Doctor *d[],int size) {
+	this->indexdoctor=size;
+	for(int i=0;i<this->indexdoctor;i++)
+	{
+		this->D[i]=d[i];
+	}
+	for(int i=0;i<this->indexdoctor;i++)
+	{
+		this->doc_ids[i]=this->D[i]->getDoctorId();
+	}
+	if(this->indexdoctor<5)
+	{
+		for(int i=this->indexdoctor;i<5;i++)
+		{
+			this->doc_ids[i]=-1;
+		}
+	}
+}
+void  Patient::setDoctor(Doctor & doc,int index)
+{
+	this->D[index]=&doc;
+	this->doc_ids[index]=(this->D[index])->getDoctorId();
+}
+const char * Patient::getOccupation() const {
+	return occupation;
+}
+
+void Patient::setOccupation(char occupation[]) {
+	strcpy(this->occupation , occupation);
+}
+
+const char* Patient::getPassword() const {
+	return password;
+}
+
+void Patient::setPassword(char password[]) {
+	strcpy(this->password , password);
+}
+
+int Patient::getPatientId() const {
+	return patient_id;
+}
+
+void Patient::setPatientId(int patientId) {
+	patient_id = patientId;
+}
+
+const char* Patient::getPatientName() const {
+	return patient_Name;
+}
+
+void Patient::setPatientName(char patientName[]) {
+	strcpy(this->patient_Name , patientName);
+}
+
+Patient::~Patient() {
+	// TODO Auto-generated destructor stub
+}
+
+int Patient::getIndexdoctor() const {
+	return indexdoctor;
+}
+
+int Patient::getDocIds(int index) const {
+	if(index<this->indexdoctor)
+		return doc_ids[index];
+	else
+		return 0;
+}
+
+void Patient::setDocIds(int docIds,int index) {
+	if(index<this->indexdoctor)
+		this->doc_ids[index] = docIds;
+}
+
+void Patient::setIndexdoctor(int indexdoctor) {
+	this->indexdoctor = indexdoctor;
+}
+void Patient::setpermission(int index)
+{
+	if(index<this->indexdoctor)
+	{
+		this->permission[index]=1;
+	}
+}
+void Patient::removepermission(int index)
+{
+	if(index<this->indexdoctor)
+	{
+		this->permission[index]=0;
+	}
+}
+bool Patient::getpermission(int index){
+	return this->permission[index];
+
+}
+EHR & Patient::getEHR(int index)
+{
+	return this->E[index];
+}
+//read Specific EHRs.
+void Patient::readEHRs()
+{
+	string path="/home/safi/Documents/Semester2/OOP/Project/Cloud/";
+	for(int i=0;i<this->indexdoctor;i++)
+	{
+		path=path+"/Patient"+to_string(this->patient_id)+"/EHR/"+"EHR"+to_string(i+1)+".dat";
+		readEHR(this->E[i],path);
+		path="/home/safi/Documents/Semester2/OOP/Project/Cloud/";
+	}
+}
+IOT& Patient::getIOT()
+{
+	return this->I;
+}
+int readEHR(EHR &E,string path)
+{
+	ifstream fin;
+	fin.open(path,ios::binary);
+	int doc_id;
+	fin.read((char *)(&E),sizeof(E));
+	decryptEHR(E);
+	fin.read((char *)(&doc_id),sizeof(doc_id));
+	fin.close();
+	return doc_id;
+}
+void decryptEHR(EHR &E)
+{
+	char decrypt[255];
+	strcpy(decrypt,E.getConsultation());
+	int j=0;
+	while(decrypt[j]!='\0')
+	{
+		decrypt[j]-=10;
+		j++;
+	}
+	E.setConsultation(decrypt);
+	strcpy(decrypt,E.getAllergies());
+	j=0;
+	while(decrypt[j]!='\0')
+	{
+		decrypt[j]-=10;
+		j++;
+	}
+	E.setAllergies(decrypt);
+	strcpy(decrypt,E.getChronicHealthCondition());
+	j=0;
+	while(decrypt[j]!='\0')
+	{
+		decrypt[j]-=10;
+		j++;
+	}
+	E.setChronicHealthCondition(decrypt);
+	strcpy(decrypt,E.getDietryRestriction());
+	j=0;
+	while(decrypt[j]!='\0')
+	{
+		decrypt[j]-=10;
+		j++;
+	}
+	E.setDietryRestriction(decrypt);
+	strcpy(decrypt,E.getPrescribtions());
+	j=0;
+	while(decrypt[j]!='\0')
+	{
+		decrypt[j]-=10;
+		j++;
+	}
+	E.setPrescribtions(decrypt);
+	strcpy(decrypt,E.getRecommendations());
+	j=0;
+	while(decrypt[j]!='\0')
+	{
+		decrypt[j]-=10;
+		j++;
+	}
+	E.setRecommendations(decrypt);
+	strcpy(decrypt,E.getRegularMedication());
+	j=0;
+	while(decrypt[j]!='\0')
+	{
+		decrypt[j]-=10;
+		j++;
+	}
+	E.setRegularMedication(decrypt);
+	for(int i=0;i<4;i++)
+	{
+		strcpy(decrypt,E.getAppointments(i));
+		j=0;
+		while(decrypt[j]!='\0')
+		{
+			decrypt[j]-=10;
+			j++;
+		}
+		E.getAppointments(i);
+	}
+}
+void Patient::printpatient()
+{
+	cout<<"\nPatient_Name:"<<this->patient_Name<<endl;
+	cout<<"Patient ID:"<<this->patient_id<<endl;
+	cout<<"Patient Age"<<this->age<<endl;
+	cout<<"Occupation:"<<this->occupation<<endl;
+}
+void Patient::setcalllog(int index)
+{
+	this->calllog[index]=1;
+}
+void Patient::receivecall(int index)
+{
+	this->calllog[index]=0;
+}
+bool Patient::getcalllog(int index)
+{
+	return this->calllog[index];
+}
+char Patient::patientmenu(Doctor *D)
+{
+	int usr_choice;
+	bool doc_full=0;
+	cout<<"\nWELCOME TO PATIENT PORTAL....\n";		//Displaying Menue.
+	cout<<"\n1.See EHR";
+	cout<<"\n2.See IOT";
+	cout<<"\n3.Add Appointment.";
+	cout<<"\n4.Set Permission.";
+	cout<<"\n5.Set Password.";
+	if(this->indexdoctor==5)
+	{
+		cout<<"\n6.Exit\n";
+		doc_full=1;
+	}
+	else
+	{
+		cout<<"\n6.Add Doctor.";
+		cout<<"\n7.Exit\n";
+	}
+	cin>>usr_choice;
+	int limit=7;
+	if(doc_full==1)
+	{
+		limit=6;
+	}
+	while(usr_choice<1 ||usr_choice>limit)
+	{
+		cout<<"\nInvalid Input!Try Again:";
+		cin>>usr_choice;
+	}
+	if(doc_full==1 && usr_choice>=6)
+	{
+		usr_choice++;
+	}
+	int doctor_choose;
+	int app_choice;
+	switch(usr_choice)			//switch to run specific case selected from menue.
+	{
+	case 1:
+		cout<<"\nYou Have\n";
+		for(int i=0;i<this->indexdoctor;i++)
+		{
+			cout<<i+1<<"."<<this->getD(i).getName()<<endl;
+		}
+		cout<<"\nEnter Your Choice of Doctor for EHR:";
+		cin>>doctor_choose;
+		while(doctor_choose<1 || doctor_choose>this->indexdoctor)
+		{
+			cout<<"\nInvalid Input!Try Again:";
+			cin>>doctor_choose;
+		}
+		this->printpatient();
+		this->getEHR(doctor_choose-1).Display();
+		cin.ignore();
+		cout<<"Press any key to continue:";
+		getch();
+		break;
+	case 2:
+		int choice;
+		cout<<"\n1.Current or \n2.3 Months";
+		cin>>choice;
+		while(choice<1 || choice>2)
+		{
+			cout<<"\nInvalid Input!";
+			cin>>choice;
+		}
+		if(choice==2)
+		{
+			string path="/home/safi/Documents/Semester2/OOP/Project/Cloud/Patient";
+			path=path+to_string(this->patient_id)+"/IOT.dat";
+			cout<<path<<endl;
+			this->getIOT().readIOT(path,1);
+		}
+		else
+		{
+			this->printpatient();
+			this->getIOT().Dispaly();
+		}
+		cin.ignore();
+		cout<<"\nPress any key to continue:";
+		getch();
+		break;
+	case 3:
+		app_choice=0;
+		char App_time[50];
+		cout<<"\nYou Have following Doctors\n";
+		for(int i=0;i<this->indexdoctor;i++)
+		{
+			cout<<i+1<<"."<<this->getD(i).getName()<<"\t"<<this->getD(i).getDegree()<<endl;
+		}
+		cout<<"\nEnter Your Choice:";
+		cin>>app_choice;
+		while(app_choice<1 || app_choice>this->indexdoctor)
+		{
+			cout<<"\nInvalid Input!Type Again:";
+			cin>>app_choice;
+		}
+		cout<<"\nEnter Date and Time:";
+		cin.ignore();
+		cin.getline(App_time, 50);
+		cout<<App_time<<endl;
+		this->getD(app_choice-1).addappointmentreq(this->patient_id-1);				//update doctor request Array.
+		this->getD(app_choice-1).setapp_time(App_time, this->patient_id-1);
+		cout<<"\nAppointment Requested Successfully....\nPress any key to continue:";
+		getch();
+		break;
+	case 4:
+		int per_choice;
+		cout<<"\nYou Have following Doctors\n";
+		for(int i=0;i<this->indexdoctor;i++)
+		{
+			cout<<i+1<<this->getD(i).getName()<<"\t"<<this->getD(i).getDegree()<<endl;
+		}
+		cout<<"\nEnter Your Choice:";
+		cin>>app_choice;
+		while(app_choice<1 || app_choice>this->getIndexdoctor())
+		{
+			cout<<"\nInvalid Input!Type Again:";
+			cin>>app_choice;
+		}
+		cout<<"\nYou want to \n1.Grant \nor \n2.Deny  \nEnter Your choice:";
+		cin>>per_choice;
+		while(per_choice<1 ||per_choice>2)
+		{
+			cout<<"\nInvalid Input!Try Again:";
+			cin>>per_choice;
+		}
+		if((per_choice==1 && this->getpermission(app_choice-1)==1)||(per_choice==2 && this->getpermission(app_choice-1)==0))
+		{
+			cin.ignore();
+			cout<<"\nRequested Permission already exists!press ANY KEY TO EXIT:";
+			getch();
+		}
+		else
+		{
+			if(per_choice==1)
+			{
+				this->setpermission(app_choice-1);
+			}
+			else
+			{
+				this->removepermission(app_choice-1);
+			}
+			cin.ignore();
+			cout<<"\nPermission removed Successfully!Press any key to exit!";
+			getch();
+		}
+		break;
+	case 5:
+		cin.ignore();
+		char new_pass[50];
+		cout<<"\nEnter New Password:";
+		cin.getline(new_pass,50);
+		this->setPassword(new_pass);
+		cin.ignore();
+		cout<<"\nPassword Changed Successfully!Press any key to exit!";
+		getch();
+		break;
+	case 6:
+		if(doc_full==0)				//Add new Doctor to Patient.
+		{
+			int *arr;
+			arr=new int [5-this->indexdoctor];
+			cout<<"\nAvaliable Doctors are\n";
+			int i=1;
+			bool check2=1;
+			for(int j=0;j<5;j++)
+			{
+				check2=1;
+				for(int k=0;k<this->indexdoctor;k++)
+				{
+					if(D[j].getDoctorId()==this->getDocIds(k))
+					{
+						check2=0;
+					}
+				}
+				if(check2==1)
+				{
+					cout<<i<<"."<<D[j].getName()<<"\t"<<D[j].getDegree()<<endl;
+					arr[i-1]=D[j].getDoctorId();
+					i++;
+				}
+			}
+			cout<<"Enter Your Choice:";
+			cin>>doctor_choose;
+			while(doctor_choose<1 || doctor_choose>(i))
+			{
+				cout<<"\nInvalid Input!Try Again:";
+				cin>>doctor_choose;
+			}
+			this->indexdoctor++;
+
+			this->doc_ids[this->indexdoctor-1]=arr[doctor_choose-1];
+			this->D[this->indexdoctor-1]=&D[arr[doctor_choose-1]-1];
+			this->D[this->indexdoctor-1]->setEhrreq(this->patient_id-1);
+			this->setpermission(this->indexdoctor-1);
+			cin.ignore();
+			cout<<"\nDoctor Added Successfully....\nPress any key to continue:";
+			getch();
+			delete []arr;
+			arr=0;
+		}
+		break;
+	case 7:
+		return 'n';
+		break;
+	}
+	return 'y';
+}
+
+

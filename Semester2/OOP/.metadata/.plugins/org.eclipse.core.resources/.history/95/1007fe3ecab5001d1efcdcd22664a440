@@ -1,0 +1,21 @@
+#include <iostream>
+#include<cstring>
+using namespace std;
+int check1(char *x, char *y)
+{
+return strcmp(x,y);
+}
+int check2(char *x, char *y)
+{
+return strncmp(x,y,3);
+}
+int main()
+{
+char e1[] = "Alpha";
+char e2[] = "Bravo";
+char e3[] = "Alpak";
+cout<<check1(e1, e2)<<endl;
+cout<<check1(e1, e1)<<endl;
+cout<<check2(e1, e3)<<endl;
+return 0;
+}

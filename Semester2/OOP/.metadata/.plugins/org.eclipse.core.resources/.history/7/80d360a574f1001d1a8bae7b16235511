@@ -1,0 +1,187 @@
+/*
+ * Doctor.cpp
+ *
+ *  Created on: May 2, 2023
+ *      Author: safi
+ */
+//============================================================================
+// Name        : Doctor.cpp
+// Author      : Saif Ur Rehman
+// ROLL NO     :i22-1697
+//============================================================================
+#include "Doctor.h"
+//Constructor.
+Doctor::Doctor(int id,char password [],char name[],int age,char deg[],char exp[]) {
+	this->Doctor_id=id;
+	strcpy(this->password,password);
+	strcpy(this->name,name);
+	this->age=age;
+	strcpy(this->Experience,exp);
+	strcpy(this->Degree,deg);
+	for(int i=0;i<10;i++)
+	{
+		this->Ehrreq[i]=0;
+		this->appointments[i]=0;
+	}
+
+}
+//Getters and setters.
+int Doctor::getAge() const {
+	return age;
+}
+
+void Doctor::setAge(int age) {
+	this->age = age;
+}
+
+const char * Doctor::getDegree() const {
+	return this->Degree;
+}
+
+void Doctor::setDegree(char degree[]) {
+	strcpy(this->Degree, degree);
+}
+
+int Doctor::getDoctorId() const {
+	return Doctor_id;
+}
+
+void Doctor::setDoctorId(int doctorId) {
+	Doctor_id = doctorId;
+}
+const char* Doctor::getExperience() const {
+	return Experience;
+}
+
+void Doctor::setExperience(char experience[]) {
+	strcpy(this->Experience, experience);
+}
+
+const char * Doctor::getName() const {
+	return name;
+}
+
+void Doctor::setName(char name[]) {
+	strcpy(this->name, name);
+}
+
+const char* Doctor::getPassword() const {
+	return password;
+}
+
+void Doctor::setPassword(char password[]) {
+	strcpy(this->password, password);
+}
+void Doctor::addappointmentreq(int index){
+	if(index>=0 && index<10)
+	{
+		this->appointments[index]=-1;
+	}
+}
+//acceptance issuance.
+void Doctor::acceptappointment(int index)
+{
+	if(index>=0 && index<10)
+	{
+		this->appointments[index]=0;
+	}
+}
+int Doctor::getappointmentreq(int index)
+{
+	return this->appointments[index];
+}
+void Doctor::setapp_time(char time[],int index)
+{
+	strcpy(this->app_time[index],time);
+}
+char *Doctor::getapp_time(int index)
+{
+	return this->app_time[index];
+}
+//Set a request.
+void Doctor::setEhrreq(int index)
+{
+	if(index>=0 && index<10)
+	{
+		this->Ehrreq[index]=-1;
+	}
+}
+//normalize request after writing EHR.
+void Doctor::normalEhrreq(int index)
+{
+	if(index>=0 && index<10)
+	{
+		this->Ehrreq[index]=0;
+	}
+}
+int Doctor::getEhrreq(int index)
+{
+	return this->Ehrreq[index];
+}
+void  Doctor::setcallin(int index)
+{
+	if(index>=0 && index<10)
+	{
+		this->callin[index]=-1;
+	}
+}
+int Doctor::getcallin(int index)
+{
+	return this->callin[index];
+}
+void Doctor::normalcallin(int index)
+{
+	if(index>=0 && index<10)
+	{
+		this->callin[index]=0;
+	}
+}
+Doctor::~Doctor() {
+	// TODO Auto-generated destructor stub
+}
+char Doctor::Doctormenu(Patient *P)
+{
+	cout<<"\nWelcome to Doctor Portal....\n";
+	string path;
+	int cap_loc=0;
+	for(int i=0;i<10;i++)			//Writing EHRs of newly aggregated patients.
+	{
+		if(this->getEhrreq(i)==-1)
+		{
+			cout<<"You have to write EHR file for:\n";
+			P[i].printpatient();
+			path="/home/safi/Documents/Semester2/OOP/Project/Cloud/Patient";
+			path=path+to_string(i+1)+"/EHR/EHR";
+			for(int j=0;j<P[i].getIndexdoctor();j++)
+			{
+				if(P[i].getDocIds(j)==D[id-1].getDoctorId())
+				{
+					path=path+to_string(j+1)+".dat";
+					cap_loc=j;
+					break;
+				}
+			}
+			P[i].getEHR(cap_loc).writeEHR(path,id);
+			P[i].getEHR(cap_loc).readEHR(path);
+			D[id-1].normalEhrreq(i);
+			cin.ignore();
+			cout<<"\nFile wrote successfully!Press any key to continue:";
+			getch();
+		}
+	}
+	char contin='Y';
+	while(contin=='Y'||contin=='y')
+	{
+		contin=P[id-1].patientmenu(D);
+		if(contin!='n'){
+			cout<<"\nWelcome back to Doctor Portal:\nDo you want to continue(Y/N):";
+			cin>>contin;
+		}
+		while(contin!='N' && contin!='n' && contin!='Y' && contin!='y')
+		{
+			cout<<"\nInvalid Input!Try Again:";
+			cin>>contin;
+		}
+	}
+}
+

@@ -1,0 +1,17 @@
+/*
+ * Complex.h
+ *
+ *  Created on: Mar 15, 2023
+ *      Author: safi
+ */
+
+#ifndef COMPLEX_H_
+#define COMPLEX_H_
+
+class Complex {
+public:
+	Complex();
+	virtual ~Complex();
+};
+
+#endif /* COMPLEX_H_ */

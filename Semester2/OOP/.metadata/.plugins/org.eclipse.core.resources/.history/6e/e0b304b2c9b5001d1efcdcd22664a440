@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+int i = 0, j = 1,f=6;
+void fun(int *p, int *q, int* k)
+{
+p = q;
+k = p;
+q = k;
+*p = 2 ,*q=*k+3;*k=*k+1;
+}
+int main()
+{
+fun(&i, &j,&f);
+cout<<i<< f <<j;
+return 0;
+}

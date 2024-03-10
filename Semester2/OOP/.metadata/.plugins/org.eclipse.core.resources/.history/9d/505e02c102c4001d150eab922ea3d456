@@ -1,0 +1,18 @@
+/*
+ * Integer.cpp
+ *
+ *  Created on: Mar 16, 2023
+ *      Author: safi
+ */
+
+#include "Integer.h"
+
+Integer::Integer() {
+	// TODO Auto-generated constructor stub
+
+}
+
+Integer::~Integer() {
+	// TODO Auto-generated destructor stub
+}
+

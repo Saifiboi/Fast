@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+void f1(int *, int);
+void f2(int *, int);
+int main()
+{
+int a;
+int b;
+a=3;
+b=5;
+f1(&a,b);
+f2(&a,b);
+cout<< a<<","<<b<<",";
+cout<< a<<","<<b;
+getchar();
+}
+void f1( int* p , int q)
+{
+int tmp;
+tmp =*p;
+*p = q;
+q= tmp;
+}
+void f2( int* p , int q)
+{
+int tmp;
+tmp =*p;
+*p = q;
+q= tmp;
+}
+

@@ -1,0 +1,23 @@
+/*
+ * Calender.h
+ *
+ *  Created on: Apr 3, 2023
+ *      Author: safi
+ */
+
+#ifndef CALENDER_H_
+#define CALENDER_H_
+#include<iostream>
+#include <ctime>
+#include <iomanip>
+using namespace std;
+class Calender {
+public:
+	Calender();
+	void Display(int, int );
+	void printCal();
+	virtual ~Calender();
+};
+
+#endif /* CALENDER_H_ */
+string nameMonth(int);

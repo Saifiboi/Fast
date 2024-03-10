@@ -1,0 +1,18 @@
+#include <iostream>
+#include<cstring>
+using namespace std;
+void e(int );
+int main( )
+{
+int a;
+a=3;
+e(a);
+e(a);
+getchar();
+}
+void e(int n)
+{
+if(n>0)
+cout<<n<<" ";
+n--;
+}

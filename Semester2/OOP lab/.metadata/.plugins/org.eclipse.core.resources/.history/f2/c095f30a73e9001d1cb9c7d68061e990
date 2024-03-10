@@ -1,0 +1,17 @@
+/*
+ * Laptop.h
+ *
+ *  Created on: May 3, 2023
+ *      Author: safi
+ */
+
+#ifndef LAPTOP_H_
+#define LAPTOP_H_
+
+class Laptop {
+public:
+	Laptop();
+	virtual ~Laptop();
+};
+
+#endif /* LAPTOP_H_ */

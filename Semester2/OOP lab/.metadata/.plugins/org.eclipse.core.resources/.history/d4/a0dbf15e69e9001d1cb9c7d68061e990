@@ -1,0 +1,17 @@
+/*
+ * BankAccount.h
+ *
+ *  Created on: May 3, 2023
+ *      Author: safi
+ */
+
+#ifndef BANKACCOUNT_H_
+#define BANKACCOUNT_H_
+
+class BankAccount {
+public:
+	BankAccount();
+	virtual ~BankAccount();
+};
+
+#endif /* BANKACCOUNT_H_ */

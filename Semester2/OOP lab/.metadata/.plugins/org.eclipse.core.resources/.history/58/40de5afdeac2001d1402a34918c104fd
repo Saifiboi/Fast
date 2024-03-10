@@ -1,0 +1,19 @@
+/*
+ * FaceBook.h
+ *
+ *  Created on: Mar 15, 2023
+ *      Author: safi
+ */
+
+#ifndef FACEBOOK_H_
+#define FACEBOOK_H_
+#include<string>
+using namespace std;
+class FaceBook {
+	string name;
+public:
+	FaceBook();
+	virtual ~FaceBook();
+};
+
+#endif /* FACEBOOK_H_ */

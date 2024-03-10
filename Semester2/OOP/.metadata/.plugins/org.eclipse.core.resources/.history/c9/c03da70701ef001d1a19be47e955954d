@@ -1,0 +1,100 @@
+/*
+ * IOT.cpp
+ *
+ *  Created on: May 6, 2023
+ *      Author: safi
+ */
+
+#include "IOT.h"
+
+IOT::IOT(char name[],float temp,float sugr,int pulserate,float Bmi,int oxign) {
+	this->temperature=temp;
+	this->sugar_level=sugr;
+	this->pulse=pulserate;
+	this->BMI=Bmi;
+	this->oxygen_saturation_prcnt=oxign;
+	if(Bp!=NULL)
+	{
+		this->Bp[0]=Bp[0];
+		this->Bp[1]=Bp[1];
+	}
+
+}
+void IOT::operator=(IOT & I)
+{
+	this->temperature=I.temperature;
+	this->sugar_level=I.sugar_level;
+	this->pulse=I.pulse;
+	this->BMI=I.BMI;
+	this->Bp[0]=I.Bp[0];
+	this->Bp[1]=I.Bp[1];
+}
+void IOT::update()
+{
+	this->temperature=90+ static_cast<float>(rand()) / (static_cast<float>(RAND_MAX/(104.4- 90)));
+	this->sugar_level=50 + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX/(400 - 50)));
+	this->BMI=16 + static_cast<float>(rand()) / (static_cast<float>(RAND_MAX/(40- 16)));
+	this->oxygen_saturation_prcnt=rand() % (100 - 75 + 1) + 75;
+	this->pulse=rand() % (120 - 40+ 1) + 40;
+	this->Bp[0]=rand() % (190 - 80+ 1) + 80;
+	this->Bp[1]=rand() % (130 - 50+ 1) + 50;
+}
+void IOT::Dispaly()
+{
+	cout<<"\nBMI:"<<this->BMI<<"kg/m^2";
+	cout<<"\nOxygen Saturation:"<<this->oxygen_saturation_prcnt<<"%";
+	cout<<"\nPulse:"<<this->pulse<<"bpm";
+	cout<<"\nTemperature:"<<this->temperature<<"°F";
+	cout<<"\nSugar Level:"<<this->sugar_level<<"mg/dL";
+	cout<<"\nBlood Pressure:"<<this->Bp[0]<<"/"<<this->Bp[1]<<"mmHg\n";
+}
+float IOT::getBmi() const {
+	return BMI;
+}
+
+int IOT::getBp(int index) const {
+	return Bp[index];
+}
+int IOT::getOxygenSaturationPrcnt() const {
+	return oxygen_saturation_prcnt;
+}
+
+int IOT::getPulse() const {
+	return pulse;
+}
+
+float IOT::getSugarLevel() const {
+	return sugar_level;
+}
+
+void IOT::setBmi(float bmi) {
+	BMI = bmi;
+}
+
+void IOT::setOxygenSaturationPrcnt(int oxygenSaturationPrcnt) {
+	oxygen_saturation_prcnt = oxygenSaturationPrcnt;
+}
+
+void IOT::setPulse(int pulse) {
+	this->pulse = pulse;
+}
+
+void IOT::setSugarLevel(float sugarLevel) {
+	sugar_level = sugarLevel;
+}
+
+void IOT::setTemperature(float temperature) {
+	this->temperature = temperature;
+}
+void IOT::setBp(int index,int val)
+{
+	this->Bp[index]=val;
+}
+float IOT::getTemperature() const {
+	return temperature;
+}
+
+IOT::~IOT() {
+	// TODO Auto-generated destructor stub
+}
+

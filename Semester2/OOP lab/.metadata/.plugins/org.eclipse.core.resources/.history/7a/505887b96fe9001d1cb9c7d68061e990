@@ -1,0 +1,18 @@
+/*
+ * HourlyEmployee.cpp
+ *
+ *  Created on: May 3, 2023
+ *      Author: safi
+ */
+
+#include "HourlyEmployee.h"
+
+HourlyEmployee::HourlyEmployee() {
+	// TODO Auto-generated constructor stub
+
+}
+
+HourlyEmployee::~HourlyEmployee() {
+	// TODO Auto-generated destructor stub
+}
+

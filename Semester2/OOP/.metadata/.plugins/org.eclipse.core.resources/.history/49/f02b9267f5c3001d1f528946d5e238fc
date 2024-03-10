@@ -1,0 +1,12 @@
+#include<iostream>
+#include"String.h"
+using namespace std;
+int main()
+{
+	char *str="saifi03";
+	String S(str);
+	//String S1(str);
+	S.display();
+	cout<<endl;
+	cout<<S.getAt(9)<<endl;
+}

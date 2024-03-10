@@ -1,0 +1,25 @@
+/*
+ * Customers.h
+ *
+ *  Created on: Apr 26, 2023
+ *      Author: lab
+ */
+
+#ifndef CUSTOMERS_H_
+#define CUSTOMERS_H_
+#include "Reservation.h"
+#include<string>
+using namespace std;
+class Customers {
+	string name;
+	string phone;
+	string email;
+	string s_catgry;
+	string card_num;
+	Reservation R;
+public:
+	Customers(int i=0,int s=0,Flight *f,string="\0",string="\0",string="\0",string="\0",string="\0");
+	virtual ~Customers();
+};
+
+#endif /* CUSTOMERS_H_ */

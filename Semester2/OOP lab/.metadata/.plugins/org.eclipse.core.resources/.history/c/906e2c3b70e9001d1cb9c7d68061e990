@@ -1,0 +1,18 @@
+/*
+ * HourlyEmployee.cpp
+ *
+ *  Created on: May 3, 2023
+ *      Author: safi
+ */
+
+#include "HourlyEmployee.h"
+
+HourlyEmployee::HourlyEmployee(int hi ,int id,string na ):Employee(id,na){
+	this->hourlyIncome=hi;
+
+}
+
+HourlyEmployee::~HourlyEmployee() {
+	// TODO Auto-generated destructor stub
+}
+

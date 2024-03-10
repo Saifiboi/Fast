@@ -1,0 +1,16 @@
+#include <iostream>
+using namespace std;
+int num = 0;
+
+int* func(int num)
+{
+num += 5;
+return &((::num )* num + 5);
+}
+int main()
+{
+int num = 10;
+int * q = func(num);
+cout << *q;
+return 0;
+}
