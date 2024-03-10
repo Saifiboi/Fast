@@ -1,0 +1,63 @@
+/*
+ * Patient.h
+ *
+ *  Created on: May 2, 2023
+ *      Author: safi
+ */
+//============================================================================
+// Name        : Patient.h
+// Author      : Saif Ur Rehman
+// ROLL NO     :i22-1697
+//============================================================================
+#ifndef PATIENT_H_
+#define PATIENT_H_
+#include "Doctor.h"
+#include "EHR.h"
+#include "IOT.h"
+#include<string>
+#include <fstream>
+using namespace std;
+int readEHR(EHR &E,string path);
+void decryptEHR(EHR &E);
+class Patient {		//patient Declaration.
+	int patient_id;
+	char password[255];
+	char patient_Name[255];
+	int age;
+	char occupation[255];
+	Doctor *D[5];			//aggregate Doctors.
+	int indexdoctor;			//number of aggregated doctors.
+	int doc_ids[5];				//ids for aggregated doctors.
+	bool permission[5];		//Permission carrying array.
+	EHR E[5];			//compose EHRS
+	IOT I;				//Compose IOT.
+public:
+	Patient(int =0,char [] ="\0",char []="\0",int=0,char []="\0",int ind=0);
+	void readEHRs();
+	virtual ~Patient();
+	int getAge() const;
+	void setAge(int age);
+	Doctor& getD(int index) const;
+	void setD( Doctor *[],int size);
+	void  setDoctor(Doctor &,int index);
+	const char* getOccupation() const;
+	void setOccupation(char occupation[]);
+	const char* getPassword() const;
+	void setPassword(char password[]);
+	int getPatientId() const;
+	void setPatientId(int patientId);
+	const char* getPatientName() const;
+	void setPatientName(char patientName[]);
+	int getIndexdoctor() const;
+	void setIndexdoctor(int indexdoctor);
+	int getDocIds(int index) const;
+	void setDocIds(int docIds,int index);
+	void setpermission(int index);
+	void removepermission(int index);
+	bool getpermission(int index);
+	EHR& getEHR(int index);
+	void printpatient();
+	IOT& getIOT();
+};
+
+#endif /* PATIENT_H_ */

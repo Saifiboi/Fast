@@ -1,0 +1,19 @@
+/*
+ * BankAccount.cpp
+ *
+ *  Created on: May 3, 2023
+ *      Author: safi
+ */
+
+#include "BankAccount.h"
+
+BankAccount::BankAccount(int i,float b) {
+	this->accountID=i;
+	this->balance=b;
+
+}
+
+BankAccount::~BankAccount() {
+	// TODO Auto-generated destructor stub
+}
+

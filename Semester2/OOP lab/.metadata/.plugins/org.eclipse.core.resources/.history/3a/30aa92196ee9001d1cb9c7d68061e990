@@ -1,0 +1,26 @@
+//============================================================================
+// Name        : Lab-13.cpp
+// Author      : Saif ur rehman
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+
+#include <iostream>
+using namespace std;
+#include "CurrentAccount.cpp"
+#include "SavingsAccount.cpp"
+int main() {
+	CurrentAccount C(1,10000);
+	SavingsAccount S(2,15000);
+	C.amountDeposit(5000);
+	cout<<C.balanceInquiry()<<endl;
+	C.amountWithdrawn(5000);
+	cout<<C.balanceInquiry()<<endl;
+	S.amountDeposit(3000);
+	cout<<S.balanceInquiry()<<endl;
+	S.amountWithdrawn(3000);
+	cout<<S.balanceInquiry()<<endl;
+
+	return 0;
+}

@@ -1,0 +1,20 @@
+/*
+ * Desktop.h
+ *
+ *  Created on: May 3, 2023
+ *      Author: safi
+ */
+
+#ifndef DESKTOP_H_
+#define DESKTOP_H_
+#include "Computer.h"
+class Desktop:public Computer {
+	string color;
+	string monitor_size;
+	string processor;
+public:
+	Desktop();
+	virtual ~Desktop();
+};
+
+#endif /* DESKTOP_H_ */

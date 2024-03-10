@@ -1,0 +1,30 @@
+/*
+ * FaceBook.cpp
+ *
+ *  Created on: Mar 15, 2023
+ *      Author: safi
+ */
+
+#include "FaceBook.h"
+using namespace std;
+FaceBook::FaceBook() {
+cout<<"\nDefault constructor:";
+
+
+}
+FaceBook::FaceBook(string Name,string Email,char g,char* Contact)
+{
+	this->name=Name;
+	this->email=Email;
+	this->gender=g;
+	this->contact=new char [100];
+	int i=0;
+	while(Contact[i]!='\0')
+	{
+		this->contact[i]=Contact[i];
+	}
+}
+FaceBook::~FaceBook() {
+	// TODO Auto-generated destructor stub
+}
+

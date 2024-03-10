@@ -1,0 +1,19 @@
+/*
+ * Integer.h
+ *
+ *  Created on: Mar 16, 2023
+ *      Author: safi
+ */
+
+#ifndef INTEGER_H_
+#define INTEGER_H_s
+class Integer {
+	int number;
+public:
+	Integer();
+	Integer(int);
+	Integer(String);
+	virtual ~Integer();
+};
+
+#endif /* INTEGER_H_ */

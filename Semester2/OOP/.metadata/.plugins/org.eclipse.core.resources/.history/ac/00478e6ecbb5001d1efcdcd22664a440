@@ -1,0 +1,12 @@
+#include <iostream>
+#include<cstring>
+using namespace std;
+int main(){
+int data = 10;
+int const * what;
+what = &data; // oh dear
+cout<<what<<"\t"
+<<*what<<"\\"
+<<&what; // interesting ;)
+return 0;
+}

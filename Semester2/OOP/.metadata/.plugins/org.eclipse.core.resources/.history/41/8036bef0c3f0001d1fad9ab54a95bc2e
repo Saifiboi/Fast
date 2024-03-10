@@ -1,0 +1,23 @@
+/*
+ * Call.h
+ *
+ *  Created on: May 12, 2023
+ *      Author: safi
+ */
+
+#ifndef SRC_CALL_H_
+#define SRC_CALL_H_
+#include "header.h"
+class Call {
+	int call_id;
+	char notes_doc[300];
+	char patient_not[300];
+	bool audio_vid;			//0 audio 1 video
+	bool call_rec;
+public:
+	Call(int =0,char []="\0",char []="\0",bool =0,bool =0);
+	void Make_CalltoD(Doctor &D);
+	virtual ~Call();
+};
+
+#endif /* SRC_CALL_H_ */

@@ -1,0 +1,12 @@
+#include <iostream>
+#include<cstring>
+using namespace std;
+int main(){
+int x = 10; // ok
+int *q = &x; // going good
+int const*const my_strange_const_friend=q; // this is cruel
+cout<<my_strange_const_friend <<endl; // speechless here
+cout<<*my_strange_const_friend <<endl;
+cout<<&my_strange_const_friend <<"\t"<<&q; // speechless here, again!
+return 0;
+}

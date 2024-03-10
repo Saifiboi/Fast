@@ -1,0 +1,51 @@
+/*
+ * Doctor.h
+ *
+ *  Created on: May 2, 2023
+ *      Author: safi
+ */
+//============================================================================
+// Name        : Doctor.h
+// Author      : Saif Ur Rehman
+// ROLL NO     :i22-1697
+//============================================================================
+#ifndef DOCTOR_H_
+#define DOCTOR_H_
+#include "header.h"
+class Doctor {		//Doctor Declaration.
+	int Doctor_id;
+	char  password[255];
+	char name[255];
+	int age;
+	char Experience[255];
+	Call *C[10];
+	int appointments[10];		//store appointment requests.
+	char app_time[10][50];		//time requested for appointments.
+	int Ehrreq[10];				//Request to write EHR of newly aggregated patient .
+	char Degree[255];
+public:
+	Doctor(int =0,char [] ="\0",char [] ="\0",int=0,char []="\0",char []="\0");
+	virtual ~Doctor();
+	int getAge() const;
+	void setAge(int age);
+	const char* getDegree() const;
+	void setDegree(char degree[]);
+	int getDoctorId() const;
+	void setDoctorId(int doctorId);
+	const char* getExperience() const;
+	void setExperience(char experience[]);
+	const char* getName() const;
+	void addappointmentreq(int index);
+	void setapp_time(char time[],int index);
+	char *getapp_time(int index);
+	int getappointmentreq(int index);
+	void acceptappointment(int index);
+	void setEhrreq(int index);
+	void normalEhrreq(int index);
+	int getEhrreq(int index);
+	void setName(char name[]);
+	const char* getPassword() const;
+	void setPassword(char password[]);
+};
+
+#endif /* DOCTOR_H_ */

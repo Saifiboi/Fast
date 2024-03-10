@@ -1,0 +1,29 @@
+/*
+ * IntegerList.cpp
+ *
+ *  Created on: Mar 15, 2023
+ *      Author: safi
+ */
+
+#include "IntegerList.h"
+
+IntegerList::IntegerList(int elements) {
+	this->numElements=elements;
+	this->list=new int[this->numElements];
+	this->size=this->numElements;
+
+}
+IntegerList::IntegerList(IntegerList &copy)
+{
+	this->numElements=copy.numElements;
+	this->list=new int [this->numElements];
+	this->size=copy.size;
+	for(int i=0;i<size;i++)
+	{
+		this->list[i]=copy.list[i];
+	}
+}
+IntegerList::~IntegerList() {
+	// TODO Auto-generated destructor stub
+}
+

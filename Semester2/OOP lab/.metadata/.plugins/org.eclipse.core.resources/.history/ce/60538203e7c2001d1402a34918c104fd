@@ -1,0 +1,18 @@
+/*
+ * IntegerList.cpp
+ *
+ *  Created on: Mar 15, 2023
+ *      Author: safi
+ */
+
+#include "IntegerList.h"
+
+IntegerList::IntegerList() {
+	// TODO Auto-generated constructor stub
+
+}
+
+IntegerList::~IntegerList() {
+	// TODO Auto-generated destructor stub
+}
+

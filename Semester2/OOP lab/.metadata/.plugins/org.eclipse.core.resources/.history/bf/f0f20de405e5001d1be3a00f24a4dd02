@@ -1,0 +1,86 @@
+/*
+ * Flight.cpp
+ *
+ *  Created on: Apr 26, 2023
+ *      Author: lab
+ */
+
+#include "Flight.h"
+#include<iostream>
+using namespace std;
+Flight::Flight(int n,string orign,string des,string dept,string arrt,string date,int s) {
+	this->flight_no=n;
+	this->origin=orign;
+	this->destination=des;
+	this->dep_time=dept;
+	this->arr_time=arrt;
+	this->seat_rem=s;
+	this->Date=date;
+}
+
+const string& Flight::getArrTime() const {
+	return arr_time;
+}
+
+void Flight::setArrTime(const string &arrTime) {
+	arr_time = arrTime;
+}
+
+const string& Flight::getDate() const {
+	return Date;
+}
+
+void Flight::setDate(const string &date) {
+	Date = date;
+}
+
+const string& Flight::getDepTime() const {
+	return dep_time;
+}
+
+void Flight::setDepTime(const string &depTime) {
+	dep_time = depTime;
+}
+
+const string& Flight::getDestination() const {
+	return destination;
+}
+
+void Flight::setDestination(const string &destination) {
+	this->destination = destination;
+}
+
+int Flight::getFlightNo() const {
+	return flight_no;
+}
+
+void Flight::setFlightNo(int flightNo) {
+	flight_no = flightNo;
+}
+
+const string& Flight::getOrigin() const {
+	return origin;
+}
+
+void Flight::setOrigin(const string &origin) {
+	this->origin = origin;
+}
+
+int Flight::getSeatRem() const {
+	return seat_rem;
+}
+
+void Flight::setSeatRem(int seatRem) {
+	seat_rem = seatRem;
+}
+void Flight::display(){
+	cout<<"\nDeparture:"<<this->origin<<endl;
+	cout<<"\nArrival:"<<this->destination<<endl;
+	cout<<"\nAirline:XYZ Airline"<<endl;
+	cout<<"\nDeparture time:"<<this->dep_time<<endl;
+	cout<<"\nArrival Time:"<<this->arr_time<<endl;
+}
+Flight::~Flight() {
+	// TODO Auto-generated destructor stub
+}
+

@@ -1,0 +1,20 @@
+/*
+ * header.h
+ *
+ *  Created on: May 12, 2023
+ *      Author: safi
+ */
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <cstring>//including necessary files.
+#include<cstdlib>
+#include<cmath>
+#include<ctime>
+using namespace std;
+#include "Patient.h"
+#include "Doctor.h"
+#include "Call.h"
+#include "EHR.h"
+#include "IOT.h" /* SRC_Header_H_ */
+

@@ -1,0 +1,86 @@
+//============================================================================
+// Name        : Prac.cpp
+// Author      : Saif Ur rehman
+// Version     :
+// Copyright   : Your copyright notice
+// Description : Hello World in C++, Ansi-style
+//============================================================================
+#include<iostream>
+using namespace std;
+class player
+{
+int Id;
+char name;
+int Scores[5]; //scores for 5 matches
+float Average; //Use to calculate average of scores
+public:
+player() //Non parameterized Constructor
+{
+cout << "\nInside non parameterized constructor and Does nothing";
+}
+// ....... Utility Functions ........
+float calAverage(void)
+{
+int s = 0;
+for (int i = 0; i < 5; i++)
+{
+s += Scores[i];
+}
+Average = s / 5.0; // divided by 5 as array size is 5
+}
+//...... Setter or Mutator Functions ......
+void setId(int i)
+{
+cout << "\nInside setId() function\n";
+Id = i;
+}
+void setName(char c)
+{
+cout << "\nInside setName() function\n";
+name = c;
+}
+// ..... Accessor or Getter functions .......
+int getID()
+{
+cout << "\nInside getId() function\n";
+return Id;
+}
+int getName()
+{
+cout << "\nInside getName() function\n";
+return name;
+
+}
+void setscores()
+{
+	cout<<"Enter 5 Scores:"<<endl;
+	for(int i=0;i<5;i++)
+	{
+		cin>>Scores[i];
+	}
+}
+~player() //Destructor
+{
+cout << "\nInside Desstructor that does nothing";
+}
+};
+int main()//Driver function
+{
+	player p1;
+	player p2;
+	player p3;
+	p1.setId(1);
+	p2.setId(2);
+	p3.setId(3);
+	p1.setName('m');
+	p2.setName('n');
+	p3.setName('o');
+	cout<<p1.getID();
+	cout<<p2.getID();
+	cout<<p3.getID();
+	cout<<p1.getName();
+	cout<<p2.getName();
+	cout<<p3.getName();
+
+
+}

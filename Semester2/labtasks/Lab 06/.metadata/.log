@@ -1,0 +1,25 @@
+!SESSION 2023-03-03 10:45:50.411 -----------------------------------------------
+eclipse.buildId=4.27.0.20230112-0751
+java.version=17.0.5
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.cpp.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.cpp.product
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-03-03 10:48:19.670
+!MESSAGE Indexed 'lab 3-A' (0 sources, 0 headers) in 0.002 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-03-03 10:48:21.334
+!MESSAGE Indexed 'lab 03' (1 sources, 0 headers) in 1.12 sec: 16 declarations; 43 references; 1 unresolved inclusions; 0 syntax errors; 6 unresolved names (9.2%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-03-03 10:48:31.216
+!MESSAGE Indexed 'Lab5' (1 sources, 189 headers) in 9.32 sec: 15,241 declarations; 25,008 references; 0 unresolved inclusions; 10 syntax errors; 19 unresolved names (0.047%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-03-03 10:48:31.221
+!MESSAGE Indexed 'lab 3' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-03-03 10:48:42.144
+!MESSAGE Indexed 'Lab1' (1 sources, 189 headers) in 4.72 sec: 15,203 declarations; 24,886 references; 0 unresolved inclusions; 10 syntax errors; 19 unresolved names (0.047%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2023-03-03 10:48:45.708
+!MESSAGE Indexed 'LAB 04' (1 sources, 192 headers) in 3.56 sec: 15,518 declarations; 25,367 references; 0 unresolved inclusions; 10 syntax errors; 19 unresolved names (0.046%)

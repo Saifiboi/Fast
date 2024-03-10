@@ -1,0 +1,18 @@
+/*
+ * Desktop.cpp
+ *
+ *  Created on: May 3, 2023
+ *      Author: safi
+ */
+
+#include "Desktop.h"
+
+Desktop::Desktop() {
+	// TODO Auto-generated constructor stub
+
+}
+
+Desktop::~Desktop() {
+	// TODO Auto-generated destructor stub
+}
+

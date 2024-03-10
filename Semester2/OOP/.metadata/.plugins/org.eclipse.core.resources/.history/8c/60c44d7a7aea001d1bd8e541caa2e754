@@ -1,0 +1,17 @@
+/*
+ * EHR.h
+ *
+ *  Created on: May 4, 2023
+ *      Author: safi
+ */
+
+#ifndef EHR_H_
+#define EHR_H_
+
+class EHR {
+public:
+	EHR();
+	virtual ~EHR();
+};
+
+#endif /* EHR_H_ */

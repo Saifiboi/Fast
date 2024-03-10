@@ -1,0 +1,9 @@
+#include <iostream>
+#include<cstring>
+using namespace std;
+int main(){
+int array[] = {1,2,3,4,5};
+int*p = array;
+cout<<(p+(10-5)/2 == array+1); // not sure if it is possible
+return 0;
+}

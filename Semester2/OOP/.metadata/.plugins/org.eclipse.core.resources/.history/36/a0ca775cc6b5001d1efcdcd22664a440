@@ -1,0 +1,10 @@
+#include <iostream>
+using namespace std;
+int main ( )
+{
+	char *buffer = " Hello World";
+	char *ptr = buffer;
+	ptr += 5;
+	cout<<ptr<<endl;
+	cout<<buffer;
+}

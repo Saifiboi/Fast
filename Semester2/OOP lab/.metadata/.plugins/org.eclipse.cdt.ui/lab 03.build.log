@@ -1,0 +1,8 @@
+09:28:36 **** Clean-only build of configuration Debug for project lab 03 ****
+make clean 
+rm -rf ./src/lab\ 03.d ./src/lab\ 03.o ./src/test.d ./src/test.o
+rm -rf lab\\ 03
+ 
+
+09:28:36 Build Finished. 0 errors, 0 warnings. (took 275ms)
+

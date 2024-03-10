@@ -1,0 +1,33 @@
+/*
+ * Date.h
+ *
+ *  Created on: Mar 3, 2023
+ *      Author: safi
+ */
+
+#ifndef DATE_H_
+#define DATE_H_
+#include<iostream>
+#include<string>
+#include<cstring>
+#include<bits/stdc++.h>
+using namespace std;
+class Date {
+	int day;
+	int month;
+	int year;
+public:
+	Date();
+	Date(int d,int m,int y);
+//	bool LeapYear(Date );
+//	int SubtractDate(Date,Date);
+	void operator-(Date &);
+	void calweeks(Date &D);
+	friend int noDays(int m,int y);
+	friend bool LeapYear(int );
+	void dateahead();
+	void datebeyoned();
+	virtual ~Date();
+};
+
+#endif /* DATE_H_ */

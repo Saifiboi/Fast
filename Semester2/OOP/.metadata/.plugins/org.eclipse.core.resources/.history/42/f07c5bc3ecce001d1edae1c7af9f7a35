@@ -1,0 +1,40 @@
+/*
+ * Matrix.h
+ *
+ *  Created on: Mar 23, 2023
+ *      Author: safi
+ */
+
+#ifndef MATRIX_H_
+#define MATRIX_H_
+#include<iostream>
+#include<string>
+#include<cstdlib>
+class Matrix {
+	int rows;
+	int columns;
+	int **matrix;
+
+public:
+	Matrix(int r,int c);\
+	void setsize(int x,int y);
+	void mdelloc();
+	void malloc();
+	void operator=(const Matrix &);
+	bool operator==(const Matrix &);
+	Matrix operator+(const Matrix &);
+	Matrix operator++(int x);
+	Matrix & operator++();
+	Matrix operator-(const Matrix &);
+	Matrix operator*(int);
+	Matrix operator*(Matrix &);
+	void setvalues();
+	void Display();
+	virtual ~Matrix();
+	int getColumns() const;
+	void setColumns(int columns);
+	int getRows() const;
+	void setRows(int rows);
+};
+
+#endif /* MATRIX_H_ */

@@ -1,0 +1,41 @@
+/*
+ * Student.h
+ *
+ *  Created on: Mar 11, 2023
+ *      Author: safi
+ */
+
+#ifndef STUDENT_H_
+#define STUDENT_H_
+#include<iostream>
+#include<cstring>
+#include<iomanip>
+class Student {
+private:
+	char *Num_Roll;
+	char *name;
+	int Batch;
+	int Courses_Code[5];
+	char *Courses_Name[5];
+	char Courses_Grades[6];
+	float CGPA;
+	char *Degree;
+	char *Dob;
+public:
+	Student();
+	Student(char *Num_Roll,char *name,int Batch,int Course_code[],char *Course_name[],char Course_grades[],char *Degree,char*Dob);
+	void setvalues();
+	virtual ~Student();
+	void setBatch();
+	void setDegree();
+	void setDob();
+	void setName();
+	void setNumRoll();
+	void setCourseCode();
+	void setCourseName();
+	void setCourseGrade();
+	void calcgpa();
+	void display();
+};
+
+#endif /* STUDENT_H_ */

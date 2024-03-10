@@ -1,0 +1,11 @@
+#include <iostream>
+using namespace std;
+int fun(int *n,int size,int start=0);
+
+
+int main()
+{
+	char *ptr;
+	cout<<sizeof(ptr)<<endl;
+}
+

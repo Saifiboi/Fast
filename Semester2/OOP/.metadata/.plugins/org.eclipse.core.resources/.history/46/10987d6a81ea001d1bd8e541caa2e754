@@ -1,0 +1,40 @@
+/*
+ * Patient.h
+ *
+ *  Created on: May 2, 2023
+ *      Author: safi
+ */
+
+#ifndef PATIENT_H_
+#define PATIENT_H_
+#include "Doctor.h"
+#include "EHR.h"
+#include<string>
+using namespace std;
+class Patient {
+	int patient_id;
+	string password;
+	string patient_Name;
+	int age;
+	string occupation;
+	Doctor **D;
+	int indexdoctor;
+	EHR *E;
+public:
+	Patient(int =0,string ="\0",string ="\0",int=0,string="\0",int ind,Doctor **D=NULL);
+	virtual ~Patient();
+	int getAge() const;
+	void setAge(int age);
+	const Doctor* getD() const;
+	void setD( Doctor *d);
+	const string& getOccupation() const;
+	void setOccupation(const string &occupation);
+	const string& getPassword() const;
+	void setPassword(const string &password);
+	int getPatientId() const;
+	void setPatientId(int patientId);
+	const string& getPatientName() const;
+	void setPatientName(const string &patientName);
+};
+
+#endif /* PATIENT_H_ */

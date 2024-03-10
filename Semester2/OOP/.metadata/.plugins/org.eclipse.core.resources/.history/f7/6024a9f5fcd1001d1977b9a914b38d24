@@ -1,0 +1,20 @@
+/*
+ * Calender.h
+ *
+ *  Created on: Apr 3, 2023
+ *      Author: safi
+ */
+
+#ifndef CALENDER_H_
+#define CALENDER_H_
+#include<iostream>
+using namespaces std;
+class Calender {
+public:
+	Calender();
+	void Display(int, int );
+	void printCal();
+	virtual ~Calender();
+};
+
+#endif /* CALENDER_H_ */

@@ -1,0 +1,43 @@
+#include"Block.cpp"
+#include"Complex.cpp"
+#include"Holiday.cpp"
+bool inSameMonth(Holiday H1,Holiday H2);
+bool avgDate(Holiday H[],int size);
+using namespace std;
+int main()
+{
+//	cout<<Block::Blockcount<<endl;
+//	Block B1(2,2,2,"black");
+//	cout<<Block::Blockcount<<endl;
+//	B1.print();
+	Complex C1;
+	Complex C2(5,5);
+	Complex C3;
+	C3=C1.addComplex(C2);
+	cout<<C3.getReal()<<endl;
+	cout<<C3.getImaginary()<<endl;
+	Holiday h1;
+	Holiday h2;
+
+
+}
+bool inSameMonth(Holiday H1,Holiday H2)
+{
+	if(H1.getMonth()==H2.getMonth())
+	{
+		return 1;
+	}
+	else
+		return 0;
+}
+double avgDate(Holiday H[],int size)
+{
+	int sum=0;
+	for(int i=0;i<size;i++)
+	{
+		sum+=H[i].getDay();
+	}
+	return float(sum)/size;
+
+}
+

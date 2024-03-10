@@ -1,0 +1,9 @@
+#include <iostream>
+using namespace std;
+int main ( )
+{
+char *s[4] = {"black", "white", "yellow", "violet"};
+cout<<(*(s+1)+2)<<endl;
+cout<<*(*(s+2)+3);
+return 0;
+}

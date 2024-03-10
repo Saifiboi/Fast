@@ -1,0 +1,15 @@
+10:03:38 **** Build of configuration Debug for project This done ****
+make all 
+Building file: ../src/This done.cpp
+Invoking: Cross G++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/This done.d" -MT"src/This done.o" -o "src/This done.o" "../src/This done.cpp"
+Finished building: ../src/This done.cpp
+ 
+Building target: This done
+Invoking: Cross G++ Linker
+g++  -o "This done" ./src/This\ done.o   
+Finished building target: This done
+ 
+
+10:03:39 Build Finished. 0 errors, 0 warnings. (took 676ms)
+
